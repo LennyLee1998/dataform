@@ -1,15 +1,14 @@
 // import logo from './logo.svg';
-import "./App.css";
-import data from "./mock/data";
+import "./App.scss";
 import ProductTable from "./views/ProductTable";
 import SearchBar from "./views/SearchBar";
+import data from "./mock/data";
 
 export default function App() {
-  console.log("data", data);
   return (
     <div className="app">
       <SearchBar />
-      <ProductTable />
+      <ProductTable data={data} />
     </div>
   );
 }

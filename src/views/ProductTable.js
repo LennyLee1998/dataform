@@ -1,14 +1,22 @@
 import React from "react";
-import TableHeader from "../components/TableHeader";
-import ProductCategory from "../components/ProductCategory";
-import ProductItem from "../components/ProductItem";
+import Product from "./Product";
 
-export default function ProductTable() {
+export default function ProductTable({data}) {
+  // 当前的种类
+  const categories = [...new Set(data.map((item) => item.category))];
+
+  // 渲染的产品
+  const products = categories.map((item) => {
+    const currentData = data.filter((iten) => iten.category === item);
+    return <Product key={item} data={currentData} category={item} />;
+  });
   return (
     <div className="product-table">
-      <TableHeader />
-      <ProductCategory />
-      <ProductItem />
+      <div className="table-header">
+        <div>Name</div>
+        <div>Price</div>
+      </div>
+      {products}
     </div>
   );
 }

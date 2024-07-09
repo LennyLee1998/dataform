@@ -8,7 +8,7 @@ export default function Product({ category, data }) {
   });
   return (
     <div>
-      <div className="product-category">{category}</div>
+      <div className="text-center text-xl font-bold mt-2">{category}</div>
       {productItems}
     </div>
   );
